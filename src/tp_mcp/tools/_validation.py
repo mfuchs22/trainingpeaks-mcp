@@ -115,6 +115,7 @@ class UpdateWorkoutInput(BaseModel):
     duration_minutes: float | None = Field(default=None, ge=0, le=1440)
     distance_km: float | None = Field(default=None, ge=0, le=1000)
     tss_planned: float | None = Field(default=None, ge=0, le=2000)
+    tss_actual: float | None = Field(default=None, ge=0, le=2000)
     tags: str | None = Field(default=None, max_length=500)
     athlete_comment: str | None = None
     coach_comment: str | None = None

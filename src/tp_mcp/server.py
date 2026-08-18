@@ -270,6 +270,10 @@ TOOLS = [
                 "duration_minutes": {"type": "number"},
                 "distance_km": {"type": "number"},
                 "tss_planned": {"type": "number"},
+                "tss_actual": {
+                    "type": "number",
+                    "description": "Override the completed (actual) TSS. Use to correct miscalculated TSS on completed workouts; drives CTL/ATL history.",
+                },
                 "tags": {"type": "string"},
                 "athlete_comment": {"type": "string"},
                 "coach_comment": {"type": "string"},
@@ -1386,6 +1390,7 @@ async def _h_update_workout(args):
         description=args.get("description"), date=args.get("date"),
         duration_minutes=args.get("duration_minutes"),
         distance_km=args.get("distance_km"), tss_planned=args.get("tss_planned"),
+        tss_actual=args.get("tss_actual"),
         tags=args.get("tags"), athlete_comment=args.get("athlete_comment"),
         coach_comment=args.get("coach_comment"), feeling=args.get("feeling"),
         rpe=args.get("rpe"), structure=args.get("structure"),

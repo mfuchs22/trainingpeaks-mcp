@@ -557,6 +557,7 @@ async def tp_update_workout(
     duration_minutes: float | None = None,
     distance_km: float | None = None,
     tss_planned: float | None = None,
+    tss_actual: float | None = None,
     tags: str | None = None,
     athlete_comment: str | None = None,
     coach_comment: str | None = None,
@@ -587,6 +588,7 @@ async def tp_update_workout(
             duration_minutes=duration_minutes,
             distance_km=distance_km,
             tss_planned=tss_planned,
+            tss_actual=tss_actual,
             tags=tags,
             athlete_comment=athlete_comment,
             coach_comment=coach_comment,
@@ -687,6 +689,8 @@ async def tp_update_workout(
             existing["distancePlanned"] = _km_to_m(params.distance_km)
         if effective_tss is not None:
             existing["tssPlanned"] = effective_tss
+        if params.tss_actual is not None:
+            existing["tssActual"] = params.tss_actual
         if params.tags is not None:
             existing["userTags"] = params.tags
         if params.athlete_comment is not None:
